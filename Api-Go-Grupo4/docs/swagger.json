@@ -1,0 +1,137 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "API Trabajadores USFX",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/trabajadores": {
+            "get": {
+                "tags": [
+                    "trabajadores"
+                ],
+                "summary": "Listar todos los trabajadores",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Trabajador"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "trabajadores"
+                ],
+                "summary": "Crear trabajador",
+                "parameters": [
+                    {
+                        "description": "Datos",
+                        "name": "trabajador",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Trabajador"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/models.Trabajador"
+                        }
+                    }
+                }
+            }
+        },
+        "/trabajadores/{id}": {
+            "put": {
+                "tags": [
+                    "trabajadores"
+                ],
+                "summary": "Actualizar trabajador",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Datos",
+                        "name": "trabajador",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Trabajador"
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "delete": {
+                "tags": [
+                    "trabajadores"
+                ],
+                "summary": "Eliminar trabajador por ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ID del trabajador",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Eliminado",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Trabajador": {
+            "type": "object",
+            "properties": {
+                "apellido": {
+                    "type": "string",
+                    "example": "Amurrio"
+                },
+                "cargo": {
+                    "type": "string",
+                    "example": "Developer"
+                },
+                "ci": {
+                    "type": "string",
+                    "example": "1234567"
+                },
+                "departamento": {
+                    "type": "string",
+                    "example": "Sistemas"
+                },
+                "id": {
+                    "type": "string",
+                    "example": "65f1c..."
+                },
+                "nombre": {
+                    "type": "string",
+                    "example": "Karen"
+                }
+            }
+        }
+    }
+}

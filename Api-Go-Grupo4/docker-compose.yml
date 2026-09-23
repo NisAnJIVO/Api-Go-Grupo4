@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+
+  app:
+    build: .
+    container_name: trabajador-api
+    ports:
+      - "8080:8080"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017
+    depends_on:
+      - mongo
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:7
+    container_name: mongo-examen
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

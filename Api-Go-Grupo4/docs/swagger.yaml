@@ -1,0 +1,91 @@
+basePath: /
+definitions:
+  models.Trabajador:
+    properties:
+      apellido:
+        example: Amurrio
+        type: string
+      cargo:
+        example: Developer
+        type: string
+      ci:
+        example: "1234567"
+        type: string
+      departamento:
+        example: Sistemas
+        type: string
+      id:
+        example: 65f1c...
+        type: string
+      nombre:
+        example: Karen
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  title: API Trabajadores USFX
+  version: "1.0"
+paths:
+  /trabajadores:
+    get:
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Trabajador'
+            type: array
+      summary: Listar todos los trabajadores
+      tags:
+      - trabajadores
+    post:
+      parameters:
+      - description: Datos
+        in: body
+        name: trabajador
+        required: true
+        schema:
+          $ref: '#/definitions/models.Trabajador'
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Trabajador'
+      summary: Crear trabajador
+      tags:
+      - trabajadores
+  /trabajadores/{id}:
+    delete:
+      parameters:
+      - description: ID del trabajador
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Eliminado
+          schema:
+            type: string
+      summary: Eliminar trabajador por ID
+      tags:
+      - trabajadores
+    put:
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Datos
+        in: body
+        name: trabajador
+        required: true
+        schema:
+          $ref: '#/definitions/models.Trabajador'
+      responses: {}
+      summary: Actualizar trabajador
+      tags:
+      - trabajadores
+swagger: "2.0"
