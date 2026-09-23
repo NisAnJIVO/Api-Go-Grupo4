@@ -21,11 +21,11 @@ var ColeccionUsuarios *mongo.Collection
 // Login godoc
 // @Summary Iniciar sesión y obtener token JWT
 // @Tags auth
-// @Param credenciales body models.Usuario true "Email y contraseña"
+// @Param credenciales body models.LoginRequest true "Email y contraseña"
 // @Success 200 {object} map[string]string
 // @Router /login [post]
 func Login(c *gin.Context) {
-	var credenciales models.Usuario
+	var credenciales models.LoginRequest
 	if err := c.ShouldBindJSON(&credenciales); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Datos inválidos"})
 		return

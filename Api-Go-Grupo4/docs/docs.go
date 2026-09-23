@@ -116,7 +116,7 @@ const docTemplate = `{
             "properties": {
                 "apellido": {
                     "type": "string",
-                    "example": "Amurrio"
+                    "example": "Vargas"
                 },
                 "cargo": {
                     "type": "string",
@@ -136,7 +136,7 @@ const docTemplate = `{
                 },
                 "nombre": {
                     "type": "string",
-                    "example": "Karen"
+                    "example": "Isaac"
                 }
             }
         }

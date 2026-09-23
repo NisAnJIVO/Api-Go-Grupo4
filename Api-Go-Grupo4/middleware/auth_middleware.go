@@ -20,15 +20,13 @@ func VerificarJWT(c *gin.Context) {
 		return
 	}
 
-	// Separamos "Bearer" del token real
-	partes := strings.SplitN(authHeader, " ", 2)
-	if len(partes) != 2 || partes[0] != "Bearer" {
+	// Aceptamos el token tanto con "Bearer <token>" como solo "<token>"
+	tokenString := strings.TrimSpace(strings.TrimPrefix(authHeader, "Bearer"))
+	if tokenString == "" {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "Formato de token inválido"})
 		c.Abort()
 		return
 	}
-
-	tokenString := partes[1]
 
 	// Parseamos y validamos el token
 	token, err := jwt.Parse(tokenString, func(t *jwt.Token) (interface{}, error) {

@@ -6,6 +6,7 @@ import (
 	"os"
 	"time"
 
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -54,16 +55,16 @@ func SembrarDatosIniciales(client *mongo.Client) {
 			"password": "1234",
 		})
 		if err == nil {
-			log.Println("🌱 Usuario inicial creado: email: ana@empresa.com | password: 1234")
+			log.Println("Usuario inicial creado: email: ana@empresa.com | password: 1234")
 		}
 	}
 
 	countTrabajadores, _ := trabajadoresCol.CountDocuments(ctx, bson.M{})
 	if countTrabajadores == 0 {
 		_, err := trabajadoresCol.InsertOne(ctx, bson.M{
-			"nombre":       "Carlos",
-			"apellido":     "Gomez",
-			"ci":           "87654321",
+			"nombre":       "Isaac",
+			"apellido":     "Vargas",
+			"ci":           "12642012",
 			"cargo":        "Backend Developer Go",
 			"departamento": "Tecnología",
 		})

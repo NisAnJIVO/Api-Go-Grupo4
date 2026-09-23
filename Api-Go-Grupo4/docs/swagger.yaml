@@ -3,7 +3,7 @@ definitions:
   models.Trabajador:
     properties:
       apellido:
-        example: Amurrio
+        example: Vargas
         type: string
       cargo:
         example: Developer
@@ -18,7 +18,7 @@ definitions:
         example: 65f1c...
         type: string
       nombre:
-        example: Karen
+        example: Isaac
         type: string
     type: object
 host: localhost:8080

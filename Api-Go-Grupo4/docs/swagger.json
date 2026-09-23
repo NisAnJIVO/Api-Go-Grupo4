@@ -109,7 +109,7 @@
             "properties": {
                 "apellido": {
                     "type": "string",
-                    "example": "Amurrio"
+                    "example": "Vargas"
                 },
                 "cargo": {
                     "type": "string",
@@ -129,7 +129,7 @@
                 },
                 "nombre": {
                     "type": "string",
-                    "example": "Karen"
+                    "example": "Isaac"
                 }
             }
         }
